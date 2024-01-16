@@ -3,6 +3,9 @@ import React,{useState} from "react";
 
 const FormValidation = () => {
     const [user, setUser] = useState({name:"",email:"",password:"",confirmPassword:""})
+    const [message, setMessage] = useState("")
+
+    
     const {name,email,password,confirmPassword} = user
 
 
@@ -12,12 +15,37 @@ const FormValidation = () => {
         let key = e.target.name
         setUser({...user, [key]:e.target.value})
     }
+    
 
+    function submitUser(e){
+         e.preventDefault() 
+
+         // validations  
+         if(!name || !email || !password || !confirmPassword){
+             alert("Please fill all the fields")
+         }
+         else if(password !== confirmPassword){
+             alert("Password and Confirm Password must be same")
+         }
+         
+         else{
+            setMessage("You have Registered Successfully")
+         }
+
+
+    }
     
 
     return (
         <div>
-            <form>
+           
+           {
+            message ? <div> 
+               Hey {name} { message} with email {email}
+            </div> : null
+           }
+
+            <form onSubmit={submitUser}>
                 <input
                     type="text"
                     placeholder="Name"
