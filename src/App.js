@@ -19,10 +19,10 @@ const App = () => {
             {/* <Objects /> */}
             {/* <FormBasics /> */}
             {/* <FormBasics2 /> */}
-            {/* <FormValidation /> */}
+            <FormValidation />
             {/* <Fruits /> */}
             {/* <LazyInitilization /> */}
-            <Async />
+            {/* <Async /> */}
         </div>
     );
 }

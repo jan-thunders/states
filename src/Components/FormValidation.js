@@ -3,6 +3,7 @@ import React,{useState} from "react";
 
 const FormValidation = () => {
     const [user, setUser] = useState({name:"",email:"",password:"",confirmPassword:""})
+    const [registeredUser, setRegisteredUser] = useState([]) // [{name:"",email:"",password:"",confirmPassword:""}
     const [message, setMessage] = useState("")
 
     
@@ -30,6 +31,8 @@ const FormValidation = () => {
          
          else{
             setMessage("You have Registered Successfully")
+            setRegisteredUser({...user})
+            setUser({name:"",email:"",password:"",confirmPassword:""})
          }
 
 
@@ -41,7 +44,7 @@ const FormValidation = () => {
            
            {
             message ? <div> 
-               Hey {name} { message} with email {email}
+               Hey {registeredUser.name} { message} with email {registeredUser.email}
             </div> : null
            }
 
